@@ -12,7 +12,11 @@
 </head>
 <body>
     <h1>Gerencimento de Produtos</h1>
-    <a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a>
+    @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a]>*@
+    @*Ctrl + K + C = Comentário*@
+
+    @* Link em MVC | Razor *@
+    @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
     <div> 
     </div>
 </body>
