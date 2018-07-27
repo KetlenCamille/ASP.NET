@@ -18,5 +18,9 @@ namespace Ecommerce.Controllers
         {
             return View();
         }
-
+        public ActionResult CadastrarProduto(string nomeProduto, string descricaoProduto, string precoProduto, string categoriaProdudo)
+        {
+            return View();
+        }
+    }
 }
