@@ -14,6 +14,8 @@ namespace Ecommerce.Controllers
         // GET: Produto
         public ActionResult Index()
         {
+            ViewBag.Data = DateTime.Now;
+            ViewBag.Produtos = context.Produtos.ToList();
             return View();
         }
 
