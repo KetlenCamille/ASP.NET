@@ -13,14 +13,14 @@ namespace Ecommerce.Models
         [Key]
         public int IdProduto { get; set; }
 
-        public string DescricaoProduto { get; set; }
+        public string Descricao { get; set; }
 
-        public double PrecoProduto { get; set; }
+        public double Preco { get; set; }
 
-        public string NomeProduto { get; set; }
+        public string Nome { get; set; }
 
-        public string CategoriaProduto { get; set; }
+        public string Categoria { get; set; }
 
-        public string ImagemProduto { get; set; }
+        public string Imagem { get; set; }
     }
 }
