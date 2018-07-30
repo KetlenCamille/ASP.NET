@@ -21,7 +21,18 @@
 
     @* Link em MVC | Razor *@
     @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
-    <div> 
+    
+    <br><br><b><i> Produtos já cadastrados</i></b><br>
+    @foreach (var produto in produtos)
+    {
+        <br>
+        <b>Nome:</b> @produto.Nome <br>
+        <b>Descrição: </b> @produto.Descricao <br>
+        <b>Preço:</b> @produto.Preco <br>
+        <b>Categoria: </b> @produto.Categoria <br>
+    }
+
+    <div>
     </div>
 </body>
 </html>
