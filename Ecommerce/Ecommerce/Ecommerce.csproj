@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="DAO\Context.cs" />
+    <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,6 +154,7 @@
     </Content>
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\Produto\CadastrarProduto.cshtml" />
+    <Content Include="Views\Produto\EditarProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

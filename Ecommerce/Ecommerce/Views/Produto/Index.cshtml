@@ -1,4 +1,4 @@
-﻿
+﻿@using Ecommerce.Models
 @{
     Layout = null;
     DateTime data = ViewBag.Data;
@@ -30,13 +30,15 @@
                 <th>Preço</th>
                 <th>Categoria</th>
             </tr>
-            @foreach (var produto in produtos)
+            @foreach (Produto produto in produtos)
             {
                 <tr>
                     <td>@produto.Nome</td>
                     <td>@produto.Descricao</td>
                     <td>@produto.Preco</td>
                     <td>@produto.Categoria</td>
+                    <td>@Html.ActionLink("Editar", "EditarProduto", "Produto", new { id = produto.IdProduto }, null)</td>
+                    <td>@Html.ActionLink("Excluir", "ExcluirProduto", "Produto", new { id = produto.IdProduto }, null)</td>
                 </tr>
             }
         </table>

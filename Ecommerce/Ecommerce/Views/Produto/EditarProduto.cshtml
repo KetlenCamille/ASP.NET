@@ -1,0 +1,37 @@
+﻿@using Ecommerce.Models
+@{
+    Layout = null;
+    Produto produto = ViewBag.Produto;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alterar Produto</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+        {
+            @Html.Hidden("idProduto", produto.IdProduto)
+            @Html.TextBox("id02", produto.IdProduto, new {@disable = "" }) <br>
+
+            @Html.Label("Nome do Produto")
+            @Html.TextBox("nomeProduto", produto.Nome) <br>
+
+            @Html.Label("Descrição")
+            @Html.TextBox("descricaoProduto", produto.Descricao) <br>
+
+            @Html.Label("Preço")
+            @Html.TextBox("precoProduto", produto.Preco) <br>
+
+            @Html.Label("Categoria")
+            @Html.TextBox("categoriaProduto", produto.Categoria) <br>
+
+            <input type="submit" value="Salvar"/>
+        }
+    </div>
+</body>
+</html>
