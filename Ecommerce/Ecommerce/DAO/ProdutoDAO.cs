@@ -9,7 +9,7 @@ namespace Ecommerce.DAO
 {
     public class ProdutoDAO
     {
-        Context context = new Context();
+        private static Context context = new Context();
         public void Cadastrar(Produto produto)
         {
             if (produto != null)

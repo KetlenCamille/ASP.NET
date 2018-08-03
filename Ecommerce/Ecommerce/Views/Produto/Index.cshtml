@@ -1,54 +1,37 @@
 ﻿@using Ecommerce.Models
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/Layout.cshtml";
     DateTime data = ViewBag.Data;
     List<Ecommerce.Models.Produto> produtos = ViewBag.Produtos;
 }
+<h2>Gerencimento de Produtos</h2>
+@*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a]>*@
+@*Ctrl + K + C = Comentário*@
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Gerenciamento de Produtos</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        @Html.ActionLink("Ecommerce", "Index", "Produto", null, new { @class="navbar-brand"})
-    </nav>
-
-
-    <h1>Gerencimento de Produtos</h1>
-    @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a]>*@
-    @*Ctrl + K + C = Comentário*@
-
-    @data
-
-    @* Link em MVC | Razor *@
-    @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
-    <br><br><b><i> Produtos já cadastrados</i></b><br>
-    <div>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Categoria</th>
-            </tr>
-            @foreach (Produto produto in produtos)
+@* Link em MVC | Razor *@
+@Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
+<br><br><b><i> Produtos já cadastrados</i></b><br>
+<table class="table table-hover table-striped" style="margin-top:30px">
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Categoria</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    @foreach (Produto produto in produtos)
             {
-                <tr>
-                    <td>@produto.Nome</td>
-                    <td>@produto.Descricao</td>
-                    <td>@produto.Preco</td>
-                    <td>@produto.Categoria</td>
-                    <td>@Html.ActionLink("Editar", "EditarProduto", "Produto", new { id = produto.IdProduto }, null)</td>
-                    <td>@Html.ActionLink("Excluir", "ExcluirProduto", "Produto", new { id = produto.IdProduto }, null)</td>
-                </tr>
-            }
-        </table>
-    </div>
-</body>
-</html>
+        <tr>
+            <td>@produto.Nome</td>
+            <td>@produto.Descricao</td>
+            <td>@produto.Preco</td>
+            <td>@produto.Categoria</td>
+            <td>@Html.ActionLink("Editar", "EditarProduto", "Produto", new { id = produto.IdProduto }, null)</td>
+            <td>@Html.ActionLink("Excluir", "ExcluirProduto", "Produto", new { id = produto.IdProduto }, null)</td>
+        </tr>
+    }
+</table>
+<div style="text-align:right">
+    <p>Dados atualizados às:  <b>@data</b></p>
+</div>

@@ -11,12 +11,12 @@ namespace Ecommerce.Controllers
     public class ProdutoController : Controller
     {
         ProdutoDAO produtoDAO = new ProdutoDAO();
-        private Context context = new Context();
+
         // GET: Produto
         public ActionResult Index()
         {
             ViewBag.Data = DateTime.Now;
-            ViewBag.Produtos = context.Produtos.ToList();
+            ViewBag.Produtos = produtoDAO.ListarTodos();
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace Ecommerce.Controllers
 
         public ActionResult EditarProduto(int id)
         {
-            ViewBag.Produto = context.Produtos.Find(id);
+            ViewBag.Produto = produtoDAO.BuscarPorId(id);
             return View();
         }
 
