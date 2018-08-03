@@ -55,7 +55,7 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public ActionResult EditarProduto(string nomeProduto, string descricaoProduto, string precoProduto, string categoriaProdudo, int idProduto)
         {
-            Produto produto = context.Produtos.Find(idProduto);
+            Produto produto = produtoDAO.BuscarPorId(idProduto);
 
             produto.Nome = nomeProduto;
             produto.Descricao = descricaoProduto;

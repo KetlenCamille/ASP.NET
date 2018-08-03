@@ -35,8 +35,13 @@ namespace Ecommerce.DAO
 
         public void Excluir(int idProduto)
         {
-            context.Produtos.Remove(context.Produtos.Find(idProduto));
+            context.Produtos.Remove(BuscarPorId(idProduto));
             context.SaveChanges();
+        }
+
+        public Produto BuscarPorId(int id)
+        {
+            return context.Produtos.Find(id);
         }
     }
 }

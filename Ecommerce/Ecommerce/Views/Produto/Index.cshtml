@@ -11,8 +11,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Gerenciamento de Produtos</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        @Html.ActionLink("Ecommerce", "Index", "Produto", null, new { @class="navbar-brand"})
+    </nav>
+
+
     <h1>Gerencimento de Produtos</h1>
     @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a]>*@
     @*Ctrl + K + C = Comentário*@
