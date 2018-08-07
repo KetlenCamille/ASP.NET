@@ -16,5 +16,7 @@ namespace Ecommerce.DAO
 
         //Mapeamento das classes (que vão virar tabela no banco)
         public DbSet<Produto> Produtos { get; set; }
+
+        public DbSet<Categoria> Categorias { get; set; }
     }
 }

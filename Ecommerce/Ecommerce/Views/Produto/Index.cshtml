@@ -1,7 +1,8 @@
 ﻿@using Ecommerce.Models
+@model List<Produto>
 @{
     DateTime data = ViewBag.Data;
-    List<Ecommerce.Models.Produto> produtos = ViewBag.Produtos;
+    //List<Ecommerce.Models.Produto> produtos = ViewBag.Produtos;
 }
 <h2>Gerencimento de Produtos</h2>
 @*<a href="~/Views/Produto/Cadastrar"> Cadastrar Produto </a]>*@
@@ -19,7 +20,7 @@
         <th>Editar</th>
         <th>Excluir</th>
     </tr>
-    @foreach (Produto produto in produtos)
+    @foreach (Produto produto in Model)
             {
         <tr>
             <td>@produto.Nome</td>

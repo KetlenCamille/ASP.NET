@@ -16,7 +16,7 @@ namespace Ecommerce
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Produto", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Produto", action = "Index", id = "id"}
             );
         }
     }

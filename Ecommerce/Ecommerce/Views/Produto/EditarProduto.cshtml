@@ -1,35 +1,52 @@
 ﻿@using Ecommerce.Models
+@model Produto
 @{
     Produto produto = ViewBag.Produto;
 }
-<div style="margin:20px">
-    <h3>Editar Produto</h3>
-</div>
-
 <div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("EditarProduto", "Produto", FormMethod.Post, new { @class = "form-horizontal" }))
     {
+        <fieldset>
+            <legend style="margin-left:20px">ALterar Produto</legend>
+            @*Passando o id para o controller*@
+            @Html.HiddenFor(model => model.IdProduto)
+
+            <div class="form-group" style="margin-left:40px">
+
+                @Html.Label("Nome do Produto:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", @placeholder = "Nome do Produto" })
+                </div>
+                @*Método antigo
+                    <div class="col-sm-10">
+                        @Html.TextBox("nomeProduto", null, new { @class = "form-control", @placeholder = "Nome do Produto" })
+                    </div>*@
+            </div>
+            <div class="form-group" style="margin-left:40px">
+                @Html.Label("Descrição do Produto: ", new { @class = "control-label col-sm-3" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Descricao, new { @class = "form-control", @placeholder = "Descrição do Produto" })
+                </div>
+            </div>
+            <div class="form-group" style="margin-left:40px">
+                @Html.Label("Preço:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Preco, new { @class = "form-control", @placeholder = "Preço do Produto" })
+                </div>
+            </div>
+            <div class="form-group" style="margin-left:40px">
+                @Html.Label("Categoria:", new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Categoria, new { @class = "form-control", @placeholder = "Categoria do Produto" })
+                </div>
+            </div>
+        </fieldset>
+        <br>
         <div class="form-group" style="margin-left:40px">
-            @Html.Hidden("idProduto", produto.IdProduto)
-
-            @Html.Label("Código Produto")
-            @Html.TextBox("id02", produto.IdProduto, new { @disabled = ""}) <br>
-
-            @Html.Label("Nome do Produto") <br>
-            @Html.TextBox("nomeProduto", produto.Nome) <br>
-
-            @Html.Label("Descrição") <br>
-            @Html.TextBox("descricaoProduto", produto.Descricao) <br>
-
-            @Html.Label("Preço") <br>
-            @Html.TextBox("precoProduto", produto.Preco) <br>
-
-            @Html.Label("Categoria") <br>
-            @Html.TextBox("categoriaProduto", produto.Categoria) <br>
-        </div>
-
-        <div class="form-group" style="margin-left:40px">
-            <input type="submit" value="Salvar" />
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="reset" value="Resetar" class="btn btn-secondary" />
+            </div>
         </div>
     }
 </div>

@@ -10,13 +10,15 @@ namespace Ecommerce.DAO
     public class ProdutoDAO
     {
         private static Context context = new Context();
-        public void Cadastrar(Produto produto)
+        public bool Cadastrar(Produto produto)
         {
-            if (produto != null)
+            if ( BuscarPorNome(produto) == null )
             {
                 context.Produtos.Add(produto);
                 context.SaveChanges();
+                return true;
             }
+            return false;
         }
 
         public List<Produto> ListarTodos()
@@ -42,6 +44,11 @@ namespace Ecommerce.DAO
         public Produto BuscarPorId(int id)
         {
             return context.Produtos.Find(id);
+        }
+
+        public Produto BuscarPorNome(Produto produto)
+        {
+            return context.Produtos.FirstOrDefault(x => x.Nome.Equals(produto.Nome));
         }
     }
 }

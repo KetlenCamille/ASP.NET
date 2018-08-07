@@ -10,14 +10,16 @@ namespace Ecommerce.Controllers
 {
     public class ProdutoController : Controller
     {
-        ProdutoDAO produtoDAO = new ProdutoDAO();
+        static ProdutoDAO produtoDAO = new ProdutoDAO();
 
         // GET: Produto
         public ActionResult Index()
         {
             ViewBag.Data = DateTime.Now;
-            ViewBag.Produtos = produtoDAO.ListarTodos();
-            return View();
+            //ViewBag.Produtos = produtoDAO.ListarTodos();
+
+            //Enviando a lista pelo retorno da View (quando não utiliza a ViewBag)
+            return View(produtoDAO.ListarTodos());
         }
 
         public ActionResult CadastrarProduto()
@@ -26,24 +28,23 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastrarProduto(string nomeProduto, string descricaoProduto, string precoProduto, string categoriaProdudo)
+        public ActionResult CadastrarProduto(Produto produto)
         {
-            Produto produto = new Produto
+            if(ModelState.IsValid)
             {
-                Nome = nomeProduto,
-                Descricao = descricaoProduto,
-                Preco = Convert.ToDouble(precoProduto),
-                Categoria = categoriaProdudo
-            };
-
-            produtoDAO.Cadastrar(produto);
-            return RedirectToAction("Index", "Produto");
+                produtoDAO.Cadastrar(produto);
+                return RedirectToAction("Index", "Produto");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Não é possível adicionar um produto com o mesmo nome!");
+                return View(produto);
+            }
         }
 
         public ActionResult EditarProduto(int id)
         {
-            ViewBag.Produto = produtoDAO.BuscarPorId(id);
-            return View();
+            return View(produtoDAO.BuscarPorId(id));
         }
 
         public ActionResult ExcluirProduto(int id)
@@ -53,16 +54,16 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditarProduto(string nomeProduto, string descricaoProduto, string precoProduto, string categoriaProdudo, int idProduto)
+        public ActionResult EditarProduto(Produto produtoAlterado)
         {
-            Produto produto = produtoDAO.BuscarPorId(idProduto);
+            Produto produtoOriginal = produtoDAO.BuscarPorId(produtoAlterado.IdProduto);
 
-            produto.Nome = nomeProduto;
-            produto.Descricao = descricaoProduto;
-            produto.Preco = Convert.ToDouble(precoProduto);
-            produto.Categoria = categoriaProdudo;
+            produtoOriginal.Nome = produtoAlterado.Nome;
+            produtoOriginal.Descricao = produtoAlterado.Descricao;
+            produtoOriginal.Preco = produtoAlterado.Preco;
+            produtoOriginal.Categoria = produtoAlterado.Categoria;
 
-            produtoDAO.Editar(produto);
+            produtoDAO.Editar(produtoOriginal);
             return RedirectToAction("Index", "Produto");
         }
     }

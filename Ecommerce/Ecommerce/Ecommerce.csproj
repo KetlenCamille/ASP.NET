@@ -132,7 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Context.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,6 +143,10 @@
     <Compile Include="Migrations\201807271351453_CriarBanco.cs" />
     <Compile Include="Migrations\201807271351453_CriarBanco.Designer.cs">
       <DependentUpon>201807271351453_CriarBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071237183_AlterTableProduto.cs" />
+    <Compile Include="Migrations\201808071237183_AlterTableProduto.Designer.cs">
+      <DependentUpon>201808071237183_AlterTableProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -158,6 +164,7 @@
     <Content Include="Views\Produto\EditarProduto.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\_viewstart.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -171,6 +178,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807271351453_CriarBanco.resx">
       <DependentUpon>201807271351453_CriarBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071237183_AlterTableProduto.resx">
+      <DependentUpon>201808071237183_AlterTableProduto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -186,9 +196,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50433</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50433/</IISUrl>
+          <IISUrl>http://localhost:51147/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
