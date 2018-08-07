@@ -1,6 +1,5 @@
 ﻿@using Ecommerce.Models
 @{
-    Layout = "~/Views/Shared/Layout.cshtml";
     Produto produto = ViewBag.Produto;
 }
 <div style="margin:20px">
@@ -14,7 +13,7 @@
             @Html.Hidden("idProduto", produto.IdProduto)
 
             @Html.Label("Código Produto")
-            @Html.TextBox("id02", produto.IdProduto, new { @disable = "" }) <br>
+            @Html.TextBox("id02", produto.IdProduto, new { @disabled = ""}) <br>
 
             @Html.Label("Nome do Produto") <br>
             @Html.TextBox("nomeProduto", produto.Nome) <br>
