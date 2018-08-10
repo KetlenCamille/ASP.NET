@@ -12,7 +12,7 @@ namespace Ecommerce.Models
         public int idCategoria { get; set; }
 
         [Required(ErrorMessage ="Campo obrigatório!")]
-        [Display(Name = "Nome do Código")]
+        [Display(Name = "Nome da Categoria")]
         public string  Nome { get; set; }
 
         [Display(Name = "Descrição do código")]

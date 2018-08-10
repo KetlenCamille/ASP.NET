@@ -148,6 +148,10 @@
     <Compile Include="Migrations\201808100225440_AlterTableProduto.Designer.cs">
       <DependentUpon>201808100225440_AlterTableProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808101129375_AddCategoriaTableProduto.cs" />
+    <Compile Include="Migrations\201808101129375_AddCategoriaTableProduto.Designer.cs">
+      <DependentUpon>201808101129375_AddCategoriaTableProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -183,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808100225440_AlterTableProduto.resx">
       <DependentUpon>201808100225440_AlterTableProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101129375_AddCategoriaTableProduto.resx">
+      <DependentUpon>201808101129375_AddCategoriaTableProduto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
