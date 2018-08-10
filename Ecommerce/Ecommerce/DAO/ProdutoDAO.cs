@@ -1,4 +1,5 @@
-﻿using Ecommerce.DAO;
+﻿using Ecommerce.Controllers;
+using Ecommerce.DAO;
 using Ecommerce.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace Ecommerce.DAO
 {
     public class ProdutoDAO
     {
-        private static Context context = new Context();
+        private static Context context = Singleton.GetInstance();
         public bool Cadastrar(Produto produto)
         {
             if ( BuscarPorNome(produto) == null )

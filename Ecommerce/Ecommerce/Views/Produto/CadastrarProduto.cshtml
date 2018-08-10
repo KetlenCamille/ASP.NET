@@ -40,7 +40,7 @@
             <div class="form-group" style="margin-left:40px">
                 @Html.LabelFor(model => model.Categoria, new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(model => model.Categoria, new { @class = "form-control", @placeholder = "Categoria do Produto" })
+                   @Html.DropDownList("Categorias", null, "--- SELECIONE ---", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Categoria, null, new { @class = "text-danger" })
                 </div>
             </div>

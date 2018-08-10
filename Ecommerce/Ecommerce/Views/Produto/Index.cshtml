@@ -9,7 +9,7 @@
 @*Ctrl + K + C = Comentário*@
 
 @* Link em MVC | Razor *@
-@Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
+@Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto") <br>
 @Html.ActionLink("Cadastrar Categoria", "CadastrarCategoria", "Categoria")
 <br><br><b><i> Produtos já cadastrados</i></b><br>
 <table class="table table-hover table-striped" style="margin-top:30px">
@@ -27,7 +27,7 @@
             <td>@produto.Nome</td>
             <td>@produto.Descricao</td>
             <td>@produto.Preco</td>
-            <td>@produto.Categoria</td>
+            <td>@produto.Categoria.Nome</td>
             <td>@Html.ActionLink("Editar", "EditarProduto", "Produto", new { id = produto.IdProduto }, null)</td>
             <td>@Html.ActionLink("Excluir", "ExcluirProduto", "Produto", new { id = produto.IdProduto }, null)</td>
         </tr>

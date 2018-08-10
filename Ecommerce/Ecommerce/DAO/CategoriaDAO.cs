@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Ecommerce.Models;
+using Ecommerce.Controllers;
 
 namespace Ecommerce.DAO
 {
     public class CategoriaDAO
     {
-        private Context context = new Context();
+        private Context context = Singleton.GetInstance();
 
         public bool Cadastrar(Categoria categoria)
         {
@@ -40,7 +41,7 @@ namespace Ecommerce.DAO
             context.SaveChanges();
         }
 
-        public Categoria BuscarPorId(int id)
+        public Categoria BuscarPorId(int? id)
         {
             return context.Categorias.Find(id);
         } 
