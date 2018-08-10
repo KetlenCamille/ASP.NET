@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ecommerce.Models;
 using Ecommerce.DAO;
+using System.IO;
 
 namespace Ecommerce.Controllers
 {
@@ -29,13 +30,27 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastrarProduto(Produto produto, int? Categorias)
+        public ActionResult CadastrarProduto(Produto produto, int? Categorias, HttpPostedFileBase fupImagem)
         {
             ViewBag.Categorias = new SelectList(categoriaDAO.ListarTodos(), "idCategoria", "Nome");
             if(ModelState.IsValid)
             {
                 if(Categorias != null)
                 {
+                    if (fupImagem != null)
+                    {
+                        string nomeImagem = Path.GetFileName(fupImagem.FileName);
+                        string caminho = Path.Combine(Server.MapPath("~/Images/"), nomeImagem);
+
+                        fupImagem.SaveAs(caminho);
+
+                        produto.Imagem = nomeImagem; 
+                    }
+                    else
+                    {
+                        produto.Imagem = "semImagem.png";
+                    }
+
                     produto.Categoria = categoriaDAO.BuscarPorId(Categorias);
                     if (produtoDAO.Cadastrar(produto))
                     {

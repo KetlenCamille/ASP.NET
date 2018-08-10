@@ -24,7 +24,7 @@ namespace Ecommerce.DAO
 
         public List<Produto> ListarTodos()
         {
-            return context.Produtos.ToList();
+            return context.Produtos.Include("Categoria").ToList();
         }
 
         public void Editar(Produto produto)

@@ -28,6 +28,9 @@
             <td>@produto.Descricao</td>
             <td>@produto.Preco</td>
             <td>@produto.Categoria.Nome</td>
+            <td>
+                <img src="~/Images/@produto.Imagem" alt="Imagem do produto" style="width:100px; height:100px"/>
+            </td>
             <td>@Html.ActionLink("Editar", "EditarProduto", "Produto", new { id = produto.IdProduto }, null)</td>
             <td>@Html.ActionLink("Excluir", "ExcluirProduto", "Produto", new { id = produto.IdProduto }, null)</td>
         </tr>
