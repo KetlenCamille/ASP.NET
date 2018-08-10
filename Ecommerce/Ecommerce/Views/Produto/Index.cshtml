@@ -10,6 +10,7 @@
 
 @* Link em MVC | Razor *@
 @Html.ActionLink("Cadastrar Produto", "CadastrarProduto", "Produto")
+@Html.ActionLink("Cadastrar Categoria", "CadastrarCategoria", "Categoria")
 <br><br><b><i> Produtos já cadastrados</i></b><br>
 <table class="table table-hover table-striped" style="margin-top:30px">
     <tr>
@@ -21,7 +22,7 @@
         <th>Excluir</th>
     </tr>
     @foreach (Produto produto in Model)
-            {
+    {
         <tr>
             <td>@produto.Nome</td>
             <td>@produto.Descricao</td>

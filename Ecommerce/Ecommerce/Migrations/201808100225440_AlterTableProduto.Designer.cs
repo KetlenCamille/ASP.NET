@@ -13,7 +13,7 @@ namespace Ecommerce.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808071237183_AlterTableProduto"; }
+            get { return "201808100225440_AlterTableProduto"; }
         }
         
         string IMigrationMetadata.Source

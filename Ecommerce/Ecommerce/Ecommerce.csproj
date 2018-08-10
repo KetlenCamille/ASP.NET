@@ -144,9 +144,9 @@
     <Compile Include="Migrations\201807271351453_CriarBanco.Designer.cs">
       <DependentUpon>201807271351453_CriarBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808071237183_AlterTableProduto.cs" />
-    <Compile Include="Migrations\201808071237183_AlterTableProduto.Designer.cs">
-      <DependentUpon>201808071237183_AlterTableProduto.cs</DependentUpon>
+    <Compile Include="Migrations\201808100225440_AlterTableProduto.cs" />
+    <Compile Include="Migrations\201808100225440_AlterTableProduto.Designer.cs">
+      <DependentUpon>201808100225440_AlterTableProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -165,6 +165,8 @@
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\_viewstart.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\CadastrarCategoria.cshtml" />
+    <Content Include="Views\Categoria\EditarCategoria.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -179,8 +181,8 @@
     <EmbeddedResource Include="Migrations\201807271351453_CriarBanco.resx">
       <DependentUpon>201807271351453_CriarBanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808071237183_AlterTableProduto.resx">
-      <DependentUpon>201808071237183_AlterTableProduto.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808100225440_AlterTableProduto.resx">
+      <DependentUpon>201808100225440_AlterTableProduto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

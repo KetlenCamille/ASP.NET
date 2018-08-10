@@ -1,6 +1,26 @@
 ﻿@using Ecommerce.Models
-@{
-    ViewBag.Title = "Index";
-}
+@model List<Categoria>
 
-@Html.ActionLink("Cadastrar Categoria", "CadastrarCategoria", "Categoria");
+<h2>Gerencimento de Categorias</h2>
+
+@* Link em MVC | Razor *@
+@Html.ActionLink("Cadastrar Categoria", "CadastrarCategoria", "Categoria")
+
+<br><br><b><i> Categorias já cadastrados</i></b><br>
+<table class="table table-hover table-striped" style="margin-top:30px">
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    @foreach (Categoria categoria in Model)
+    {
+        <tr>
+            <td>@categoria.Nome</td>
+            <td>@categoria.Descricao</td>
+            <td>@Html.ActionLink("Editar", "EditarProduto", "Produto", new { id = categoria.idCategoria }, null)</td>
+            <td>@Html.ActionLink("Excluir", "ExcluirProduto", "Produto", new { id = categoria.idCategoria }, null)</td>
+        </tr>
+    }
+</table>
