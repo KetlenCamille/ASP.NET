@@ -51,5 +51,10 @@ namespace Ecommerce.DAO
         {
             return context.Produtos.FirstOrDefault(x => x.Nome.Equals(produto.Nome));
         }
+
+        public List<Produto> ListarPorCategoria(int idCategoria)
+        {
+            return context.Produtos.Include("Categoria").Where(xx => xx.Categoria.idCategoria == idCategoria).ToList();
+        }
     }
 }
