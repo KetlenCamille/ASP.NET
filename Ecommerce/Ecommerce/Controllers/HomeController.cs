@@ -15,13 +15,19 @@ namespace Ecommerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Categorias = produtoDAO.ListarTodos();
+            ViewBag.Categorias = categoriaDAO.ListarTodos();
             return View(produtoDAO.ListarTodos());
         }
 
-        public ActionResult FiltrarCategorias (int id)
+        public ActionResult FiltrarCategorias (int? id)
         {
+            ViewBag.Categorias = produtoDAO.ListarTodos();
             return View(produtoDAO.ListarPorCategoria(id));
+        }
+
+        public ActionResult DetalhesProduto (int? id)
+        {
+            return View(produtoDAO.BuscarPorId(id));
         }
     }
 }

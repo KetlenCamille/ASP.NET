@@ -1,0 +1,28 @@
+﻿@using Ecommerce.Models
+@model List<Produto>
+@{
+    List<Ecommerce.Models.Categoria> categorias = ViewBag.Categorias;
+}
+
+<div>
+    <ul class="nav nav-tabs">
+        @foreach (Categoria categoria in categorias)
+        {
+            <li class="nav-item">
+                @Html.ActionLink(categoria.Nome, "FiltrarCategorias", "Home", new { id = categoria.idCategoria }, new { @class = "nav-link active show" })
+            </li>
+        }
+    </ul>
+</div>
+
+<div clas="row">
+    @foreach (Produto produto in Model)
+    {
+        <div class="col-sm-2">
+            <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:200; height:200" /><br>
+            <b>@Html.ActionLink(@produto.Nome, "DetalhesProduto", "Home", new { id = produto.IdProduto }, new { @class = "nav-link" })</b><br>
+            R$ @produto.Preco<br>
+        </div>
+    }
+</div>
+

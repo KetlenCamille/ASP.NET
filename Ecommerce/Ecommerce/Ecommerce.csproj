@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201808101129375_AddCategoriaTableProduto.Designer.cs">
       <DependentUpon>201808101129375_AddCategoriaTableProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161437065_TableCategoria.cs" />
+    <Compile Include="Migrations\201808161437065_TableCategoria.Designer.cs">
+      <DependentUpon>201808161437065_TableCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -174,6 +178,8 @@
     <Content Include="Views\Categoria\CadastrarCategoria.cshtml" />
     <Content Include="Views\Categoria\EditarCategoria.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\FiltrarCategoria.cshtml" />
+    <Content Include="Views\Home\DetalhesProduto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808101129375_AddCategoriaTableProduto.resx">
       <DependentUpon>201808101129375_AddCategoriaTableProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161437065_TableCategoria.resx">
+      <DependentUpon>201808161437065_TableCategoria.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

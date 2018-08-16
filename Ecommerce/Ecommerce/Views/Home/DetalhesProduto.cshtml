@@ -1,0 +1,10 @@
+﻿@using Ecommerce.Models
+@model Produto
+
+<h2>Detalhes</h2>
+
+@Model.Nome
+<img src="~/Imagens/@Model.Imagem" alt="Imagem do Produto" style="width:300px; height:300px" />
+@Model.Descricao
+@Model.Preco
+@Model.Categoria.Nome
