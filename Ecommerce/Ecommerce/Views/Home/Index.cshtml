@@ -4,24 +4,24 @@
 }
 
 <h2>Home</h2>
-<div>
-    <ul class="nav nav-tabs">
 
-        @foreach (Categoria categoria in categorias)
-        { 
-            <li class="nav-item">
-                @Html.ActionLink(categoria.Nome, "FiltrarCategorias", "Home", new { id = categoria.idCategoria }, new { @class = "nav-link active show" })
-            </li>
-        }
-    </ul>
-    <div class="row">
-        @foreach (Produto produto in Model)
-        {
-            <div class="col-sm-2">
-                <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:200px; height:200px" /><br>
-                <b>@Html.ActionLink(@produto.Nome, "DetalhesProduto", "Home", new { id = produto.IdProduto }, new { @class = "nav-link" })</b><br>
-                R$ @produto.Preco<br>
-            </div>
-        }
-    </div>
+<ul class="nav nav-tabs">
+
+    @foreach (Categoria categoria in categorias)
+    {
+        <li class="nav-item">
+            @Html.ActionLink(categoria.Nome, "Index", "Home", new { id = categoria.idCategoria }, new { @class = "nav-link active show" })
+        </li>
+    }
+</ul>
+<div class="row" style="margin-top:30px">
+    @foreach (Produto produto in Model)
+    {
+        <div class="col-sm-2">
+            <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:200px; height:100px" /><br>
+            <b>@Html.ActionLink(@produto.Nome, "DetalhesProduto", "Home", new { id = produto.IdProduto }, new { @class = "nav-link" })</b><br>
+            @produto.Preco.ToString("C2")<br>
+            @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home", new { id = produto.IdProduto }, new { @class = "btn btn-success" })
+        </div>
+    }
 </div>

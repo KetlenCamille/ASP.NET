@@ -8,3 +8,4 @@
 @Model.Descricao
 @Model.Preco
 @Model.Categoria.Nome
+@Html.ActionLink("Adicionar", "AdicionarCarrinho", "Home", new { id = Model.IdProduto }, new { @class = "btn btn-success" })

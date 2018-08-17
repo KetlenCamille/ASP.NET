@@ -19,9 +19,9 @@
     @foreach (Produto produto in Model)
     {
         <div class="col-sm-2">
-            <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:200; height:200" /><br>
+            <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:100; height:100" /><br>
             <b>@Html.ActionLink(@produto.Nome, "DetalhesProduto", "Home", new { id = produto.IdProduto }, new { @class = "nav-link" })</b><br>
-            R$ @produto.Preco<br>
+            @produto.Preco.ToString("C2")<br>
         </div>
     }
 </div>

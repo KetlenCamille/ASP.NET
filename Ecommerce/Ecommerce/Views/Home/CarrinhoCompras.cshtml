@@ -1,0 +1,16 @@
+﻿@using Ecommerce.Models
+@{
+    ViewBag.Title = "CarrinhoCompras";
+}
+
+<h2>Carrinho de Compras</h2>
+
+<tr>
+@foreach (ItemVenda item in Model)
+{
+        @*<img src="~/Imagens/@Model.Imagem" alt="Imagem do Produto" style="width:200px; height:100px" />*@<br>
+        <td>@Model.Produto.Nome </td>
+        <td>@Model.Quantidade </td>
+    <td>@Model.Preco.ToString("C2")<br></td>
+}
+</tr>

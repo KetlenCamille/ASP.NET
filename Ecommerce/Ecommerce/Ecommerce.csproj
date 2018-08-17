@@ -135,6 +135,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="DAO\ItemVendaDAO.cs" />
     <Compile Include="DAO\Singleton.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Context.cs" />
@@ -158,8 +159,13 @@
     <Compile Include="Migrations\201808161437065_TableCategoria.Designer.cs">
       <DependentUpon>201808161437065_TableCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808171314552_createTableItemVenda.cs" />
+    <Compile Include="Migrations\201808171314552_createTableItemVenda.Designer.cs">
+      <DependentUpon>201808171314552_createTableItemVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\ItemVenda.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -178,8 +184,9 @@
     <Content Include="Views\Categoria\CadastrarCategoria.cshtml" />
     <Content Include="Views\Categoria\EditarCategoria.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\FiltrarCategoria.cshtml" />
+    <Content Include="Views\Home\FiltrarCategorias.cshtml" />
     <Content Include="Views\Home\DetalhesProduto.cshtml" />
+    <Content Include="Views\Home\CarrinhoCompras.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -203,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161437065_TableCategoria.resx">
       <DependentUpon>201808161437065_TableCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171314552_createTableItemVenda.resx">
+      <DependentUpon>201808171314552_createTableItemVenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
