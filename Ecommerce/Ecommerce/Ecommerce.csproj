@@ -163,11 +163,16 @@
     <Compile Include="Migrations\201808171314552_createTableItemVenda.Designer.cs">
       <DependentUpon>201808171314552_createTableItemVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808211130472_addCarinhoId.cs" />
+    <Compile Include="Migrations\201808211130472_addCarinhoId.Designer.cs">
+      <DependentUpon>201808211130472_addCarinhoId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ItemVenda.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Sessao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -213,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171314552_createTableItemVenda.resx">
       <DependentUpon>201808171314552_createTableItemVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211130472_addCarinhoId.resx">
+      <DependentUpon>201808211130472_addCarinhoId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

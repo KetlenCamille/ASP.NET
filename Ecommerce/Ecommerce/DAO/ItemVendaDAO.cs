@@ -18,10 +18,13 @@ namespace Ecommerce.DAO
                 context.SaveChanges();
             }
         }
-
-        public List<ItemVenda> ListarTodos()
+        public void Atualizar (ItemVenda item)
         {
-            return context.ItensVenda.ToList();
+            if(item != null)
+            {
+                context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
         }
         public void Remover(int id)
         {
@@ -31,6 +34,11 @@ namespace Ecommerce.DAO
         public ItemVenda BuscarPorId(int id)
         {
             return context.ItensVenda.Find(id);
-        } 
+        }
+
+        public List<ItemVenda> ListarPorCarrinho(string guid)
+        {
+            return context.ItensVenda.Include("Produto").Where(xx => xx.CarrinhoId.Equals(guid)).ToList();
+        }
     }
 }

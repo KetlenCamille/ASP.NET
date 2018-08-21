@@ -1,16 +1,42 @@
-﻿@using Ecommerce.Models
-@{
-    ViewBag.Title = "CarrinhoCompras";
-}
+﻿@model IEnumerable<Ecommerce.Models.ItemVenda>
 
 <h2>Carrinho de Compras</h2>
-
-<tr>
-@foreach (ItemVenda item in Model)
-{
-        @*<img src="~/Imagens/@Model.Imagem" alt="Imagem do Produto" style="width:200px; height:100px" />*@<br>
-        <td>@Model.Produto.Nome </td>
-        <td>@Model.Quantidade </td>
-    <td>@Model.Preco.ToString("C2")<br></td>
-}
-</tr>
+<table class="table table-hover table-striped">
+    
+    <tr>
+        <th></th>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Subtotal</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Imagens/@item.Produto.Imagem" alt="Imagem do Produto" style="width:50px"/>
+            </td>
+            <td>
+               @item.Produto.Nome
+            </td>
+            <td>
+                <div>
+                     @Html.TextBoxFor(modelItem => item.Quantidade, new { @class = "form-control"})
+                </div>
+            </td>
+            <td>
+               @item.Preco.ToString("C2")
+            </td>
+            @{ 
+                double subtotal = item.Quantidade * item.Preco;
+            }
+            <td>
+                @subtotal.ToString("C2")
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.idItemVenda }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idItemVenda })
+            </td>
+        </tr>
+    }
+</table>
