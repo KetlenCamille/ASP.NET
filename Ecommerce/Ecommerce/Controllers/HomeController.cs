@@ -24,6 +24,7 @@ namespace Ecommerce.Controllers
             {
                 return View(produtoDAO.ListarTodos());
             }
+
             return View(produtoDAO.ListarPorCategoria(id));
         }
 
@@ -37,7 +38,7 @@ namespace Ecommerce.Controllers
             Produto produto = produtoDAO.BuscarPorId(id);
             foreach (ItemVenda item in itemVendaDAO.ListarPorCarrinho(Sessao.RetornarCarrinhoId().ToString()))
             {
-                if (produto.IdProduto == id)
+                if (item.Produto.IdProduto == id)
                 {
                     item.Quantidade += 1;
 
@@ -59,8 +60,54 @@ namespace Ecommerce.Controllers
 
         public ActionResult CarrinhoCompras()
         {
+            double total = 0;
+            foreach (ItemVenda item in itemVendaDAO.ListarPorCarrinho(Sessao.RetornarCarrinhoId().ToString()))
+            {
+                total += item.Preco * item.Quantidade;
+            }
+
+            ViewBag.Total = total;
             return View(itemVendaDAO.ListarPorCarrinho(Sessao.RetornarCarrinhoId().ToString()));
         }
 
+        public ActionResult RemoverItemCarrinho(int? id)
+        {
+            ItemVenda item = itemVendaDAO.BuscarPorId(id);
+            if (item != null)
+            {
+                if (item.Quantidade == 1)
+                {
+                    itemVendaDAO.Remover(id);
+                }
+                else
+                {
+                    item.Quantidade--;
+                    itemVendaDAO.Atualizar(item);
+                }
+            }
+            return RedirectToAction("CarrinhoCompras");
+        }
+
+        public ActionResult DiminuirQuantidade (int? id)
+        {
+            ItemVenda item = itemVendaDAO.BuscarPorId(id);
+            if(item != null && item.Quantidade > 1)
+            {
+                item.Quantidade--;
+                itemVendaDAO.Atualizar(item);
+            }
+            return RedirectToAction("CarrinhoCompras");
+        }
+
+        public ActionResult AumentarQuantidade(int? id)
+        {
+            ItemVenda item = itemVendaDAO.BuscarPorId(id);
+            if (item != null)
+            {
+                item.Quantidade++;
+                itemVendaDAO.Atualizar(item);
+            }
+            return RedirectToAction("CarrinhoCompras");
+        }
     }
 }

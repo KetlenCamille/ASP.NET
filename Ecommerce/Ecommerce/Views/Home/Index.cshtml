@@ -4,7 +4,6 @@
 }
 
 <h2>Home</h2>
-
 <ul class="nav nav-tabs">
 
     @foreach (Categoria categoria in categorias)
@@ -18,7 +17,7 @@
     @foreach (Produto produto in Model)
     {
         <div class="col-sm-2">
-            <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:200px; height:100px" /><br>
+            <img src="~/Imagens/@produto.Imagem" alt="Imagem do Produto" style="width:100px; height:100px" /><br>
             <b>@Html.ActionLink(@produto.Nome, "DetalhesProduto", "Home", new { id = produto.IdProduto }, new { @class = "nav-link" })</b><br>
             @produto.Preco.ToString("C2")<br>
             @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home", new { id = produto.IdProduto }, new { @class = "btn btn-success" })

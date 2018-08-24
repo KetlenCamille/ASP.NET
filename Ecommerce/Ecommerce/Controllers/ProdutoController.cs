@@ -39,8 +39,8 @@ namespace Ecommerce.Controllers
                 {
                     if (fupImagem != null)
                     {
-                        string nomeImagem = Path.GetFileName(fupImagem.FileName);
-                        string caminho = Path.Combine(Server.MapPath("~/Images/"), nomeImagem);
+                        string nomeImagem = produto.Nome + Path.GetExtension(Path.Combine(Server.MapPath("~/Imagens/"), Path.GetFileName(fupImagem.FileName)));
+                        string caminho = Path.Combine(Server.MapPath("~/Imagens/"), nomeImagem);
 
                         fupImagem.SaveAs(caminho);
 

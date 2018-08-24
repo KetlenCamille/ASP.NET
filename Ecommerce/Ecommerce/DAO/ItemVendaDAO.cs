@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Controllers;
 using Ecommerce.Models;
+using Ecommerce.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,13 @@ namespace Ecommerce.DAO
                 context.SaveChanges();
             }
         }
-        public void Remover(int id)
+        public void Remover(int? id)
         {
             context.ItensVenda.Remove(BuscarPorId(id));
+            context.SaveChanges();
         }
         
-        public ItemVenda BuscarPorId(int id)
+        public ItemVenda BuscarPorId(int? id)
         {
             return context.ItensVenda.Find(id);
         }
@@ -39,6 +41,16 @@ namespace Ecommerce.DAO
         public List<ItemVenda> ListarPorCarrinho(string guid)
         {
             return context.ItensVenda.Include("Produto").Where(xx => xx.CarrinhoId.Equals(guid)).ToList();
+        }
+
+        public int QuantidadeItensCarrinho()
+        {
+            int quantidade = 0;
+            foreach (ItemVenda item in ListarPorCarrinho(Sessao.RetornarCarrinhoId().ToString()))
+            {
+                quantidade += item.Quantidade;
+            }
+            return quantidade;
         }
     }
 }
