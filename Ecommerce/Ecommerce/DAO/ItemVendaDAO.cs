@@ -52,5 +52,11 @@ namespace Ecommerce.DAO
             }
             return quantidade;
         }
+
+        public List<ItemVenda> BuscarPorGuid(string guid)
+        {
+            return context.ItensVenda.Where(xx => xx.CarrinhoId.Equals(guid)).ToList();
+        }
+
     }
 }

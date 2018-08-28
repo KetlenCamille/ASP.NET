@@ -70,5 +70,20 @@ namespace Ecommerce.Controllers
             }
             return RedirectToAction("Index");
         }
+        /*
+        [HttpPost]
+        public ActionResult Login(Usuario usuario)
+        {
+            var user = UsuarioDAO.Login(usuario);
+            if (user != null)
+            {
+                Session["Usuario"] = user;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Erro", "Usuario");
+            }
+        }*/
     }
 }

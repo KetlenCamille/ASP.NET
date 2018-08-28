@@ -1,0 +1,84 @@
+﻿@{
+    double total = ViewBag.Total;
+    List<Ecommerce.Models.ItemVenda> itensVenda = ViewBag.ItensVenda;
+}
+<h2>Resumo da Compra</h2>
+<table class="table table-hover table-striped">
+
+    @*<tr>
+            <th></th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Subtotal</th>
+            <th>Detalhes</th>
+            <th>Remover</th>
+        </tr>*@
+    @foreach (var item in itensVenda)
+    {
+        
+        <tr>
+            @item.Produto.Nome
+            <br>
+
+            @item.Preco.ToString("C2")
+            X
+            @item.Quantidade
+            <br>
+            @{
+                double subtotal = item.Quantidade * item.Preco;
+            }
+            Subtotal: R$
+            @subtotal.ToString("C2")
+
+            <br>
+            <br>
+        </tr>
+     }
+
+</table>
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">Total:</div>
+    <div class="card-body">
+        <p class="card-text">@total.ToString("C2")</p>
+    </div>
+</div>
+
+@model Ecommerce.Models.Usuario
+<div>
+@using (Html.BeginForm("Comprar", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend style="margin-left:20px">Dados Pessoais</legend>
+
+        <div class="form-group" style="margin-left:40px">
+
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-sm-3" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", @placeholder = "Nome do Cliente" })
+                @Html.ValidationMessageFor(model => model.Nome, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group" style="margin-left:40px">
+            @Html.LabelFor(model => model.Endereco, new { @class = "control-label col-sm-3" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Endereco, new { @class = "form-control", @placeholder = "Endereco do Cliente" })
+                @Html.ValidationMessageFor(model => model.Endereco, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group" style="margin-left:40px">
+            @Html.LabelFor(model => model.Telefone, new { @class = "control-label col-sm-3" })
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.Telefone, new { @class = "form-control", @placeholder = "Telefone do Cliente" })
+                @Html.ValidationMessageFor(model => model.Telefone, null, new { @class = "text-danger" })
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group" style="margin-left:40px">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value="COMPRAR" class="btn btn-primary" />
+        </div>
+    </div>
+}
+</div>

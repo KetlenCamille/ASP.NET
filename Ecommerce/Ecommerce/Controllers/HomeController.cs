@@ -14,6 +14,9 @@ namespace Ecommerce.Controllers
         static ProdutoDAO produtoDAO = new ProdutoDAO();
         static CategoriaDAO categoriaDAO = new CategoriaDAO();
         static ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
+        static UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        static VendaDAO vendaDAO = new VendaDAO();
 
         // GET: Home
         public ActionResult Index(int? id)
@@ -108,6 +111,41 @@ namespace Ecommerce.Controllers
                 itemVendaDAO.Atualizar(item);
             }
             return RedirectToAction("CarrinhoCompras");
+        }
+
+        public ActionResult ResumoCompra()
+        {
+            double total = 0;
+            foreach (ItemVenda item in itemVendaDAO.ListarPorCarrinho(Sessao.RetornarCarrinhoId().ToString()))
+            {
+                total += item.Preco * item.Quantidade;
+            }
+
+            ViewBag.Total = total;
+
+            ViewBag.ItensVenda = itemVendaDAO.ListarPorCarrinho(Sessao.RetornarCarrinhoId().ToString());
+            return View();
+        }
+
+        public ActionResult Comprar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Comprar(Usuario usuarioP)
+        { 
+            usuarioDAO.Cadastrar(usuarioP);
+
+            Venda venda = new Venda
+            {
+                usuario = usuarioP,
+                CarrinhoId = Sessao.RetornarCarrinhoId().ToString()
+            };
+
+            vendaDAO.Cadastrar(venda);
+            Sessao.ZerarSessao();
+            return RedirectToAction("Comprar");
         }
     }
 }

@@ -22,5 +22,7 @@ namespace Ecommerce.DAO
         public DbSet<ItemVenda> ItensVenda { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Venda> Vendas { get; set; }
     }
 }

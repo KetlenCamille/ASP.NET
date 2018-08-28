@@ -142,6 +142,7 @@
     <Compile Include="DAO\Context.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DAO\VendaDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -173,11 +174,20 @@
     <Compile Include="Migrations\201808280302038_usuarioMigration.Designer.cs">
       <DependentUpon>201808280302038_usuarioMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808281216453_alterTableUsuario.cs" />
+    <Compile Include="Migrations\201808281216453_alterTableUsuario.Designer.cs">
+      <DependentUpon>201808281216453_alterTableUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808281319322_addTableVenda.cs" />
+    <Compile Include="Migrations\201808281319322_addTableVenda.Designer.cs">
+      <DependentUpon>201808281319322_addTableVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ItemVenda.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Sessao.cs" />
   </ItemGroup>
@@ -203,6 +213,8 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\EditarUsuario.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Home\ResumoCompra.cshtml" />
+    <Content Include="Views\Home\Comprar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -235,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808280302038_usuarioMigration.resx">
       <DependentUpon>201808280302038_usuarioMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281216453_alterTableUsuario.resx">
+      <DependentUpon>201808281216453_alterTableUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281319322_addTableVenda.resx">
+      <DependentUpon>201808281319322_addTableVenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
