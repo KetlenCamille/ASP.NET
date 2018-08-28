@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201808211130472_addCarinhoId.Designer.cs">
       <DependentUpon>201808211130472_addCarinhoId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808280302038_usuarioMigration.cs" />
+    <Compile Include="Migrations\201808280302038_usuarioMigration.Designer.cs">
+      <DependentUpon>201808280302038_usuarioMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ItemVenda.cs" />
@@ -228,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808211130472_addCarinhoId.resx">
       <DependentUpon>201808211130472_addCarinhoId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808280302038_usuarioMigration.resx">
+      <DependentUpon>201808280302038_usuarioMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

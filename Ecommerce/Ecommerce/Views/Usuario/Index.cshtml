@@ -3,9 +3,9 @@
 <h2></h2>
 
 @* Link em MVC | Razor *@
-@Html.ActionLink("Cadastrar Usuário", "CadastrarUsuario", "Usuario")
+@Html.ActionLink("Cadastrar Usuário", "CadastrarUsuario", "Usuario") <br>
+@Html.ActionLink("Logar", "Login", "Usuario")
 
-<br><br><b><i> Categorias já cadastrados</i></b><br>
 <table class="table table-hover table-striped" style="margin-top:30px">
     <tr>
         <th>Nome</th>
@@ -17,10 +17,16 @@
     @foreach (Usuario usuario in Model)
     {
         <tr>
-            <td>@usuario.Nome</td>
-            <td>@usuario.Email</td>
+            <td>
+                @usuario.Nome
+            </td>
+            <td>
+                @usuario.Email
+            </td>
             <td>@Html.ActionLink("Editar", "EditarUsuario", "Usuario", new { id = usuario.UsuarioId }, null)</td>
             <td>@Html.ActionLink("Excluir", "ExcluirUsuario", "Usuario", new { id = usuario.UsuarioId }, null)</td>
         </tr>
+
     }
+
 </table>

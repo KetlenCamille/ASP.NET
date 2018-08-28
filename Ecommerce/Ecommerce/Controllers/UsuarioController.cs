@@ -14,7 +14,7 @@ namespace Ecommerce.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            return View();
+            return View(usuarioDAO.ListarTodos());
         }
 
         public ActionResult CadastrarUsuario ()
@@ -62,13 +62,13 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Index", "Usuario");
         }
 
-        public ActionResult Login()
+        public ActionResult Login(Usuario usuario)
         {
-            if(usuarioDAO.Autenticar())
+            if(usuarioDAO.Autenticar(usuario))
             {
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("LoginNaoEncontrado");
+            return RedirectToAction("Index");
         }
     }
 }
