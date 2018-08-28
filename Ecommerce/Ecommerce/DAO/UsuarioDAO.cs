@@ -44,5 +44,18 @@ namespace Ecommerce.DAO
         {
             return context.Usuarios.Find(id);
         }
+
+        public bool Autenticar(string email, string senha)
+        {
+
+            foreach (Usuario usuario in ListarTodos())
+            {
+                if (usuario.Email == email && usuario.Senha == senha)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

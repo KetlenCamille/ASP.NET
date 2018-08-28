@@ -135,6 +135,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\ItemVendaDAO.cs" />
     <Compile Include="DAO\Singleton.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
@@ -194,6 +195,10 @@
     <Content Include="Views\Home\FiltrarCategorias.cshtml" />
     <Content Include="Views\Home\DetalhesProduto.cshtml" />
     <Content Include="Views\Home\CarrinhoCompras.cshtml" />
+    <Content Include="Views\Usuario\CadastrarUsuario.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Usuario\EditarUsuario.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,7 +209,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagens\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807271351453_CriarBanco.resx">
