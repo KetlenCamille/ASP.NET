@@ -50,7 +50,7 @@ namespace Ecommerce.DAO
 
             foreach (Usuario usuario in ListarTodos())
             {
-                if (usuario.Email == email && usuario.Senha == senha)
+                if (usuario.Email.Equals(email) && usuario.Senha.Equals(senha))
                 {
                     return true;
                 }
