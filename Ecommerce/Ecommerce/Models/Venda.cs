@@ -14,5 +14,7 @@ namespace Ecommerce.Models
         public Usuario usuario { get; set; }
 
         public string CarrinhoId { get; set; }
+
+        public List<ItemVenda> ItensVenda { get; set; }
     }
 }
