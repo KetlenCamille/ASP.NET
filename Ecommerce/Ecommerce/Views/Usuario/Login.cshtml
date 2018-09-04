@@ -5,6 +5,7 @@
         <fieldset>
             <legend>Login</legend>
             @Html.ValidationSummary(true, null, new { @class = "text-danger" })
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Email, new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">

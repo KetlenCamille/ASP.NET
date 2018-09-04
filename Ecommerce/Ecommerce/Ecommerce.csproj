@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201808281319322_addTableVenda.Designer.cs">
       <DependentUpon>201808281319322_addTableVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809041140258_ModifiedTableUsuario.cs" />
+    <Compile Include="Migrations\201809041140258_ModifiedTableUsuario.Designer.cs">
+      <DependentUpon>201809041140258_ModifiedTableUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\ItemVenda.cs" />
@@ -253,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808281319322_addTableVenda.resx">
       <DependentUpon>201808281319322_addTableVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041140258_ModifiedTableUsuario.resx">
+      <DependentUpon>201809041140258_ModifiedTableUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

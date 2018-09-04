@@ -9,6 +9,8 @@ using System.IO;
 
 namespace Ecommerce.Controllers
 {
+    //Método de autorização só mente paraq uem está autenticado
+    [Authorize]
     public class ProdutoController : Controller
     {
         static ProdutoDAO produtoDAO = new ProdutoDAO();

@@ -11,13 +11,15 @@ namespace Ecommerce.DAO
     {
         private Context context = Singleton.GetInstance();
 
-        public void Cadastrar(Usuario usuario)
+        public bool Cadastrar(Usuario usuario)
         {
-            if(usuario != null)
+            if(BuscarUsuarioPorEmail(usuario) == null)
             {
                 context.Usuarios.Add(usuario);
                 context.SaveChanges();
+                return true;
             }
+            return false;
         }
 
         public List<Usuario> ListarTodos()
@@ -45,17 +47,23 @@ namespace Ecommerce.DAO
             return context.Usuarios.Find(id);
         }
 
-        public bool Autenticar(Usuario usu)
+        public Usuario Autenticar(Usuario usu)
         {
-
-            foreach (Usuario usuario in ListarTodos())
-            {
-                if (usuario.Email.Equals(usu.Email) && usuario.Senha.Equals(usu.Senha))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return context.Usuarios.FirstOrDefault(x => x.Email.Equals(usu.Email) && x.Senha.Equals(usu.Senha));
         }
+        /*foreach (Usuario usuario in ListarTodos())
+        {
+            if (usuario.Email.Equals(usu.Email) && usuario.Senha.Equals(usu.Senha))
+            {
+                return usuario;
+            }
+        }
+        return false;*/
+
+        public Usuario BuscarUsuarioPorEmail(Usuario usuario)
+        {
+            return context.Usuarios.FirstOrDefault(x => x.Email.Equals(usuario.Email));
+        }
+
     }
 }

@@ -17,11 +17,9 @@ namespace Ecommerce.Utils
             }
             return HttpContext.Current.Session[NOME_SESSAO].ToString();
         }
-        public static string ZerarSessao()
+        public static void ZerarSessao()
         {
-            Guid guid = Guid.NewGuid();
-            HttpContext.Current.Session[NOME_SESSAO] = guid.ToString();
-            return HttpContext.Current.Session[NOME_SESSAO].ToString();
+            HttpContext.Current.Session[NOME_SESSAO] = null;
         }
     }
 }

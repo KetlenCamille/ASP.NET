@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ecommerce.DAO;
 using Ecommerce.Models;
+using System.Web.Security;
 
 namespace Ecommerce.Controllers
 {
@@ -26,17 +27,16 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public ActionResult CadastrarUsuario(Usuario usuario)
         {
-            ViewBag.Usuarios = new SelectList(usuarioDAO.ListarTodos(), "idUsuario", "Nome");
-            if(usuario != null)
+            if(ModelState.IsValid)
             {
-                usuarioDAO.Cadastrar(usuario);
-                return RedirectToAction("Login");
-            }
-            else
-            {
+                if(usuarioDAO.Cadastrar(usuario))
+                {
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("","Esse usuário já existe!");
                 return View(usuario);
             }
-
+            return View(usuario);
         }
 
         public ActionResult EditarUsuario(int id)
@@ -62,28 +62,28 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Index", "Usuario");
         }
 
-        public ActionResult Login(Usuario usuario)
+        public ActionResult Login()
         {
-            if(usuarioDAO.Autenticar(usuario))
-            {
-                return RedirectToAction("Index");
-            }
-            return RedirectToAction("Index");
+            return View();
         }
-        /*
+
         [HttpPost]
         public ActionResult Login(Usuario usuario)
         {
-            var user = UsuarioDAO.Login(usuario);
-            if (user != null)
+            Usuario user = usuarioDAO.Autenticar(usuario);
+            if(user != null)
             {
-                Session["Usuario"] = user;
-                return RedirectToAction("Index", "Home");
+                FormsAuthentication.SetAuthCookie(user.Email, false);
+                return RedirectToAction("Index", "Produto");
             }
-            else
-            {
-                return RedirectToAction("Erro", "Usuario");
-            }
-        }*/
+            ModelState.AddModelError("", "Usuário não encontrado!");
+            return View(usuario);
+        }
+
+        public ActionResult Logout ()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
