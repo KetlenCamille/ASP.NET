@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Ecommerce.DAO;
 using Ecommerce.Models;
 using System.Web.Security;
+using System.Net;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace Ecommerce.Controllers
 {
@@ -15,13 +18,12 @@ namespace Ecommerce.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            return View(usuarioDAO.ListarTodos());
+            return View();
         }
 
         public ActionResult CadastrarUsuario ()
         {
-            ViewBag.Usuarios = new SelectList(usuarioDAO.ListarTodos(), "idUsuario", "Nome");
-            return View();
+            return View((Usuario)TempData["Usuario"]);
         }
 
         [HttpPost]
@@ -84,6 +86,27 @@ namespace Ecommerce.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult PesquisarCep(Usuario usuario)
+        {
+            //Download da string em JSON
+            string url = "https://viacep.com.br/ws/" + usuario.Endereco.CEP + "/json/";
+
+            WebClient client = new WebClient();
+            string json = client.DownloadString(url);
+
+            //Converter a string para UTF-8
+            byte[] bytes = Encoding.Default.GetBytes(json);
+            json = Encoding.UTF8.GetString(bytes);
+
+            //Converter o JSON para Objeto
+            usuario = JsonConvert.DeserializeObject<Usuario>(json);
+
+            //Passar informação para qualquer Action do Controller
+            TempData["Usuario"] = usuario;
+            return RedirectToAction("CadastrarUsuario", "Usuario");
         }
     }
 }

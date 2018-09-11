@@ -85,6 +85,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -136,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DAO\EnderecoDAO.cs" />
     <Compile Include="DAO\ItemVendaDAO.cs" />
     <Compile Include="DAO\Singleton.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
@@ -186,8 +191,13 @@
     <Compile Include="Migrations\201809041140258_ModifiedTableUsuario.Designer.cs">
       <DependentUpon>201809041140258_ModifiedTableUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809111217088_addTableEndereco.cs" />
+    <Compile Include="Migrations\201809111217088_addTableEndereco.Designer.cs">
+      <DependentUpon>201809111217088_addTableEndereco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\ItemVenda.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -260,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041140258_ModifiedTableUsuario.resx">
       <DependentUpon>201809041140258_ModifiedTableUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111217088_addTableEndereco.resx">
+      <DependentUpon>201809111217088_addTableEndereco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

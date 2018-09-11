@@ -30,7 +30,7 @@ namespace Ecommerce.Models
         [NotMapped]
         public string ConfiguracaoSenha { get; set; }
 
-        public string Endereco { get; set; }
+        public Endereco Endereco { get; set; }
 
         public string Telefone { get; set; }
     }
